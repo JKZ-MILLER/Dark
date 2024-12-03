@@ -1,0 +1,112 @@
+:root {
+    --text-color: #D7D7D7; /* Cinza claro para contraste suave */
+    --card-front-color: #3C3C3C; /* Cinza escuro representando pedras e ruínas */
+    --card-back-color: #1A1A1A; /* Preto profundo para mistério */
+    --highlight-color: #B22222; /* Vermelho sangue simbolizando perigo e intensidade */
+}
+
+body {
+    background: url('img/darksouls-bg.jpg') no-repeat center center fixed; /* Fundo com tema sombrio */
+    background-size: cover;
+    font-family: 'Cinzel', serif; /* Fonte com aparência medieval */
+}
+
+#container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.cartao {
+    margin: 1rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    border: 3px solid var(--highlight-color);
+}
+
+.cartao__conteudo h3 {
+    color: var(--text-color);
+    text-shadow: 2px 2px 5px var(--highlight-color), 0 0 10px #000;
+    border: 1px solid var(--highlight-color);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1.2vw;
+    font-weight: bold;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
+}
+
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px var(--highlight-color), 0 0 5px #000;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 600;
+    text-shadow: 2px 2px 3px var(--highlight-color), 0 0 5px #000;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--text-color);
+    font-weight: 700;
+    background-color: rgba(50, 50, 50, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px var(--highlight-color);
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+    background-color: var(--card-back-color);
+    color: var(--text-color);
+}
+
+footer {
+    background-color: #282828;
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px var(--highlight-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
